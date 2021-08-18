@@ -1,2 +1,3 @@
 Hi this is a conflict file!
 
+Content to append in main branch
