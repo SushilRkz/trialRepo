@@ -3,3 +3,4 @@ Now, Version 2
 Editing abc from new branch
 Trial 1
 Trial 2
+New line from local dir
