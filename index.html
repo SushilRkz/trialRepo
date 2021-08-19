@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comma Separator</title>
+    <link rel="stylesheet" href="bootstrap-5.0.1-dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="external.css">
+    <style>
+        footer{
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- navbar -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand cs" href=""> Comma Separator&lt;,&gt;</a>
+            <!-- <a class="navbar-brand tl" href="">TooLY</a> -->
+        </div>
+    </nav>
+
+    <!-- card container -->
+
+    <div class="container ">
+        <div class="cardcontainer row">
+            <div class="card bg-light" style="max-width: 18rem;">
+                <div class="card-header text-white bg-dark" style="text-align: center;">INPUT</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="inputtextfield" rows="10"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card bg-light" style="max-width: 18rem;">
+                <div class="card-header bg-dark text-white" style="text-align: center;">OPTIONS</div>
+                <div class="card-body">
+                    <form class="myForm" onsubmit="return false">
+                        <div class="form-group">
+                            <label for="sepchar">Separator Character </label> <input type="text" name="sepchar"
+                                id="sepchar" class="from-control" value=",">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                value="Single Quotes">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Single Quotes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="Double Quotes">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Double Quotes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                                value="No Quotes" checked>
+                            <label class="form-check-label" for="exampleRadios3">
+                                No Quotes
+                            </label>
+                        </div>
+                        <br><br><br>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success btn-center" onclick="display()" >Convert</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card text-white bg-success outputcard" style="max-width: 98%; min-width: 18rem;">
+            <div class="card-header" style="text-align: center;">OUTPUT</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" id="outputtextfield" rows="8" cols="90"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class=" text-center text-lg-start" style="background-color: rgb(228, 222, 222);">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            ©2021 Copyright:
+            <a class="text-dark" href=""><span class="tl">TooLY</span></a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script>
+        function display() {
+            var str = document.getElementById("inputtextfield").value;
+            const rbs = document.querySelectorAll('input[name="exampleRadios"]');
+            let selectedValue;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+                    break;
+                }
+            }
+            var split;
+            if (selectedValue == "Single Quotes") {
+                split = "\'";
+            } else if (selectedValue == "Double Quotes") {
+                split = "\"";
+            } else {
+                split = "";
+            }
+            var sep = document.getElementById("sepchar").value;
+            var newString = split;
+            for (var i = 0; i < str.length; i++) {
+
+                if (str[i] == '\n' && i + 1 >= str.length) {
+                    break;
+                } else if (str[i] == '\n') {
+                    newString += split + sep + split;
+                } else {
+                    newString += str[i];
+                }
+            }
+            newString += split;
+            console.log(newString);
+            document.getElementById("outputtextfield").innerHTML = newString;
+        }
+    </script>
+    <script src="bootstrap-5.0.1-dist\js\bootstrap.min.js"></script>
+</body>
+
+</html>
