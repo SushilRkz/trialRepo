@@ -5,3 +5,5 @@ Content to append in main branch
 Totally different content to merge later
 
 Editing from origin
+
+Editing from local directory
