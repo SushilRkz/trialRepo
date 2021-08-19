@@ -2,4 +2,6 @@ Version 1
 Now, Version 2
 Editing abc from new branch
 Trial 1
+New line from origin
 Trial 2
+New line from local dir
