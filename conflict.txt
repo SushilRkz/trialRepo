@@ -3,5 +3,10 @@ Hi this is a conflict file!
 Content to append in main branch
 
 Totally different content to merge later
+<<<<<<< HEAD
 
 Editing from origin
+
+Editing from local directory
+=======
+>>>>>>> parent of 2268bd5 (Edited from origin)
